@@ -53,3 +53,4 @@ RUN pip install supervisor
 RUN > /tmp/supervisor.sock
 
 CMD supervisord -n -c /etc/supervisor/supervisord.conf
+
