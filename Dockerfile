@@ -33,8 +33,11 @@ RUN docker-php-ext-install sockets
 # Delete cache folder
 RUN rm -rf /var/cache/apk/*
 
-# Run supervisor
+# Create supervisor.sock
 RUN touch /tmp/supervisor.sock
 
-#COPY supervisord.conf /etc/supervisord.conf
-CMD supervisord -n -c /etc/supervisor/supervisord.conf
+# COPY default .conf file
+COPY supervisord.conf /etc/supervisord.conf
+
+# Run supervisor
+CMD supervisord -n -c /etc/supervisord.conf
